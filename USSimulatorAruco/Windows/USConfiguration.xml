@@ -61,7 +61,6 @@
               Name="GelBlock"
               ObjectCoordinateFrame="Ras"
               ModelFile="CubeModel.stl"
-              ModelToObjectTransform=" 1 0 0 0    0 1 0 0     0 0 1 0    0 0 0 1 "
               DensityKgPerM3="910"
               SoundVelocityMPerSec="1540"
               AttenuationCoefficientDbPerCmMhz="3.0"
@@ -69,11 +68,17 @@
               SurfaceSpecularReflectionCoefficient="0.1"
               SurfaceDiffuseReflectionCoefficient="0.0"
               TransducerSpatialModelMaxOverlapMm="50" />
-            <SpatialModel
+            <!--SpatialModel
               Name="Needle"
               ObjectCoordinateFrame="Needle"
               ModelFile="SimulatedUltrasound_NeedleModel_NeedleTip.stl"
-              ModelToObjectTransform="                1 0 0 0                0 1 0 0                0 0 1 0                0 0 0 1" DensityKgPerM3="2000" SoundVelocityMPerSec="2000" AttenuationCoefficientDbPerCmMhz="8.0" BackscatterDiffuseReflectionCoefficient="0.2" SurfaceSpecularReflectionCoefficient="0.1" SurfaceDiffuseReflectionCoefficient="0.0" SurfaceReflectionIntensityDecayDbPerMm="5" />
+              ModelToObjectTransform="                1 0 0 0                0 1 0 0                0 0 1 0                0 0 0 1"
+               DensityKgPerM3="2000" SoundVelocityMPerSec="2000"
+               AttenuationCoefficientDbPerCmMhz="8.0"
+               BackscatterDiffuseReflectionCoefficient="0.2"
+               SurfaceSpecularReflectionCoefficient="0.1"
+               SurfaceDiffuseReflectionCoefficient="0.0"
+               SurfaceReflectionIntensityDecayDbPerMm="5" /-->
             <RfProcessing>
                <ScanConversion TransducerName="Ultrasonix_L9-4/38" TransducerGeometry="LINEAR" ImagingDepthMm="60.0" TransducerWidthMm="40.0" OutputImageSizePixel="820 616" TransducerCenterPixel="410 0" OutputImageSpacingMmPerPixel="0.084 0.087" />
             </RfProcessing>
@@ -97,10 +102,11 @@
 0 0 0 1 
                     " />
       <Transform From="Image" To="Probe" Matrix="
--0.429207 0.8979 -0.0977622 -135.371 
--0.899929 -0.415925 0.130897 49.3133 
-0.0768706 0.144161 0.986564 93.99 
+-0.1 9.54098e-17 0 47 
+-9.54098e-17 -0.1 -0 -105 
+0 0 1 -9 
 0 0 0 1 
+
                     " />
    </CoordinateDefinitions>
    <PlusOpenIGTLinkServer MaxNumberOfIgtlMessagesToSend="10" MaxTimeSpentWithProcessingMs="50" ListeningPort="18944" SendValidTransformsOnly="true" OutputChannelId="TrackedVideoStream">
