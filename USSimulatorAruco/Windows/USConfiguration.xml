@@ -57,28 +57,46 @@
               AttenuationCoefficientDbPerCmMhz="100.0"
               BackscatterDiffuseReflectionCoefficient="0.1"
               SurfaceReflectionIntensityDecayDbPerMm="50" />
-            <SpatialModel
+            
+          <SpatialModel
               Name="GelBlock"
               ObjectCoordinateFrame="Ras"
               ModelFile="CubeModel.stl"
-              DensityKgPerM3="910"
               SoundVelocityMPerSec="1540"
-              AttenuationCoefficientDbPerCmMhz="3.0"
-              BackscatterDiffuseReflectionCoefficient="0.1"
-              SurfaceSpecularReflectionCoefficient="0.1"
-              SurfaceDiffuseReflectionCoefficient="0.0"
-              TransducerSpatialModelMaxOverlapMm="50" />
-            <!--SpatialModel
+          DensityKgPerM3="1800"
+          AttenuationCoefficientDbPerCmMhz="0.0001"
+          BackscatterDiffuseReflectionCoefficient="0.03"          
+          SurfaceSpecularReflectionCoefficient="0.1"
+          SurfaceDiffuseReflectionCoefficient="0.0"/>
+
+            <SpatialModel
               Name="Needle"
-              ObjectCoordinateFrame="Needle"
-              ModelFile="SimulatedUltrasound_NeedleModel_NeedleTip.stl"
-              ModelToObjectTransform="                1 0 0 0                0 1 0 0                0 0 1 0                0 0 0 1"
-               DensityKgPerM3="2000" SoundVelocityMPerSec="2000"
+              ObjectCoordinateFrame="NeedleTip"
+              ModelFile="NeedleModel.stl"
+              ModelToObjectTransform="   1 0 0 0       0 1 0 0       0 0 1 0        0 0 0 1"
+              DensityKgPerM3="2000"
+              SoundVelocityMPerSec="2000"
                AttenuationCoefficientDbPerCmMhz="8.0"
                BackscatterDiffuseReflectionCoefficient="0.2"
                SurfaceSpecularReflectionCoefficient="0.1"
                SurfaceDiffuseReflectionCoefficient="0.0"
-               SurfaceReflectionIntensityDecayDbPerMm="5" /-->
+               SurfaceReflectionIntensityDecayDbPerMm="5"
+               />
+               
+          <SpatialModel
+              Name="Kidney"
+              ObjectCoordinateFrame="Ras"
+              ModelFile="Kidney.stl"
+              
+               
+               DensityKgPerM3="910"
+          SoundVelocityMPerSec="1540"
+          AttenuationCoefficientDbPerCmMhz="3.0"
+          BackscatterDiffuseReflectionCoefficient="0.1"
+          SurfaceSpecularReflectionCoefficient="0.1"
+          SurfaceDiffuseReflectionCoefficient="0.0"
+          TransducerSpatialModelMaxOverlapMm="50" />
+
             <RfProcessing>
                <ScanConversion TransducerName="Ultrasonix_L9-4/38" TransducerGeometry="LINEAR" ImagingDepthMm="60.0" TransducerWidthMm="40.0" OutputImageSizePixel="820 616" TransducerCenterPixel="410 0" OutputImageSpacingMmPerPixel="0.084 0.087" />
             </RfProcessing>
@@ -96,20 +114,30 @@
    </DataCollection>
    <CoordinateDefinitions>
       <Transform From="Reference" To="Ras" Matrix="
--0.010614 -0.998877 0.046169 -63.5844 
-0.00695692 -0.0462443 -0.998906 -157.958 
-0.999919 -0.0102812 0.00743994 -12.6337 
+0.69368 -0.657394 -0.29435 -123.738 
+-0.406776 -0.694799 0.593117 147.925 
+-0.594425 -0.291698 -0.74938 -425.7 
 0 0 0 1 
+
                     " />
       <Transform From="Image" To="Probe" Matrix="
--0.1 9.54098e-17 0 47 
--9.54098e-17 -0.1 -0 -105 
-0 0 1 -9 
+-0.0999328 0.000210932 -0.0036585 42.073 
+-0.000140677 -0.0999814 -0.00192185 -103.664 
+-0.00366187 -0.00191541 0.0999146 -4.59973 
+0 0 0 1 
+
+                    " />
+      <Transform From="NeedleTip" To="Needle" Matrix="
+0.999066 5.42101e-20 0.0432116 -1.6326 
+0.0432103 -0.00788834 -0.999035 -175.822 
+0.000340868 0.999969 -0.00788097 -0.0529402 
 0 0 0 1 
 
                     " />
    </CoordinateDefinitions>
-   <PlusOpenIGTLinkServer MaxNumberOfIgtlMessagesToSend="10" MaxTimeSpentWithProcessingMs="50" ListeningPort="18944" SendValidTransformsOnly="true" OutputChannelId="TrackedVideoStream">
+   <PlusOpenIGTLinkServer
+     MaxNumberOfIgtlMessagesToSend="10"
+     MaxTimeSpentWithProcessingMs="50" ListeningPort="18944" SendValidTransformsOnly="true" OutputChannelId="TrackedVideoStream">
       <DefaultClientInfo>
          <MessageTypes>
             <Message Type="IMAGE" />
